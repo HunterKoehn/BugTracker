@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/projectsPage.css">
+    <script src="https://kit.fontawesome.com/79b912bdab.js" crossorigin="anonymous"></script>
+    <title>BugTracker | Projects</title>
+</head>
+<body>
+    
+    <nav class="side-nav">
+        <div class="logo">
+            <img class="home-logo" src="images/scarab-removebg-preview.png" alt="scarab">
+        </div>
+        <ul>
+            <li><a href="/home"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+            <li><a href="/viewUsers"><i class="fa-solid fa-users problem-i"></i>View Users</a></li>
+            <li><a href="/projectsPage"><i class="fa-solid fa-table-list"></i>Projects</a></li>
+            <li><a href="/tickets"><i class="fa-solid fa-receipt"></i>Tickets</a></li>
+            <li><a href="/profile"><i class="fa-solid fa-user"></i>User Profile</a></li>
+        </ul>
+        
+        <div class="logout">
+            <a href="/">Logout</a>
+        </div>
+    </nav>
+
+<nav class="top-nav">
+        <div class="top-nav-left">
+            <span class="logged-in-as">View and manage projects</span>
+        </div>
+        
+        <div class="top-nav-right">
+            <ul>
+                <li><input type="search" placeholder="Search..."></li>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+                <li><span>Notifications</span><i class="fa-solid fa-bell"></i></li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="spacer-top">
+    <form method="post" id="projectCreationForm">
+        <div>
+            <input type="text" name="projectTitle" id="projectTitle" placeholder="Project Title" autocomplete="off">
+        </div>
+        <div>
+            <input type="text" name="projectStatus" id="projectStatus" placeholder="Project Status" autocomplete="off">
+        </div>
+        <div>
+            <input type="submit" value="Submit" class="submit-btn" id="submit-btn">
+        </div>
+    </form>
+</div>
+    
+<div class="main" id="main">
+    <!-- table -->
+    <table id="projectTable">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+
+
+        <tbody id="tableBody">
+            <% for(let i=0; i<projects.length; i++) {%>
+                <tr>
+                    <td><%= projects[i].projectTitle %></td>
+                    <td><%= projects[i].projectStatus %></td>
+                    <td class="action-btns"><button>Change Status</button>
+                </tr>
+             <% } %>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

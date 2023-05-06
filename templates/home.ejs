@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/home.css">
+    <script src="https://kit.fontawesome.com/79b912bdab.js" crossorigin="anonymous"></script>
+    <title>BugTracker | Home</title>
+</head>
+<body>
+
+    <nav class="side-nav">
+        <div class="logo">
+            <img class="home-logo" src="images/scarab-removebg-preview.png" alt="scarab">
+        </div>
+        <ul>
+            <li><a href="/home"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+            <li><a href="/viewUsers"><i class="fa-solid fa-users problem-i"></i>View Users</a></li>
+            <li><a href="/projectsPage"><i class="fa-solid fa-table-list"></i>Projects</a></li>
+            <li><a href="/tickets"><i class="fa-solid fa-receipt"></i>Tickets</a></li>
+            <li><a href="/profile"><i class="fa-solid fa-user"></i>User Profile</a></li>
+        </ul>
+        
+        <div class="logout">
+            <a href="/">Logout</a>
+        </div>
+    </nav>
+
+    <nav class="top-nav">
+        <div class="top-nav-left">
+            <span class="logged-in-as">Welcome, time to start debuggin!</span>
+
+        </div>
+        
+        <div class="top-nav-right">
+            <ul>
+                <li><input type="search" placeholder="Search..."></li>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+                <li><span>Notifications</span><i class="fa-solid fa-bell"></i></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- main stuff here -->
+
+    <div class="spacer-top">
+        
+    </div>
+
+    <div class="main">
+        <!-- ticket grouping -->
+        <div class="ticket-grouping">
+            <div class="card card-low">
+                <h2>Tickets - Priority Low:</h2>
+                <span><%= ticketsLow %></span>
+            </div>
+            <div class="card card-medium">
+                <h2>Tickets - Priority Medium:</h2>
+                <span><%= ticketsMedium %></span>
+            </div>
+            <div class="card card-high">
+                <h2>Tickets - Priority High:</h2>
+                <span><%= ticketsHigh %></span>
+            </div>
+        </div>
+
+        <!-- announcements -->
+        <div class="announce">
+            <h2>Announcements Board:</h2>
+        </div>
+    </div>
+    
+
+    <!-- main stuff here -->
+
+</body>
+</html>

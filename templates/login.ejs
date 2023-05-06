@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/login.css">
+    <title>BugTracker | Login Page</title>
+</head>
+
+<!-- use nodemon src/index.js to run nodemon server -->
+
+<body>
+
+    <form name="loginForm" id="loginForm" action="/home" method="post">
+    
+            <!-- <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <button>Login</button> -->
+        <div class="form-inner">
+            <div class="header">
+                <img src="images/scarab-removebg-preview.png" alt="Scarab">
+                <h1>Bug Tracker</h1>
+            </div>
+            
+            <h2>Login</h2>
+            <div class="form-group">
+                <input type="text" name="username" id="username" placeholder="Username" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
+            </div>
+            <input type="submit" value="Login" id="login-input">
+            <a href="/signup">Sign up</a>
+        </div>
+        
+    </form>
+
+    <!-- <a href="/signup">Create an account</a> -->
+    
+    
+</body>
+<script>
+
+    const form = document.getElementById('loginForm');
+    const loggedUsername =  document.getElementById('username');
+
+    form.addEventListener('submit', function(e) {
+        const loggedUsernameValue = loggedUsername.value;
+
+        sessionStorage.setItem('loggedUser', loggedUsernameValue)
+    })
+
+</script>
+</html>

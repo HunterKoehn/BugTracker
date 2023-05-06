@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/tickets.css">
+    <script src="https://kit.fontawesome.com/79b912bdab.js" crossorigin="anonymous"></script>
+    <title>BugTracker | Tickets</title>
+</head>
+<body>
+    
+    <nav class="side-nav">
+        <div class="logo">
+            <img class="home-logo" src="images/scarab-removebg-preview.png" alt="scarab">
+        </div>
+        <ul>
+            <li><a href="/home"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+            <li><a href="/viewUsers"><i class="fa-solid fa-users problem-i"></i>View Users</a></li>
+            <li><a href="/projectsPage"><i class="fa-solid fa-table-list"></i>Projects</a></li>
+            <li><a href="/tickets"><i class="fa-solid fa-receipt"></i>Tickets</a></li>
+            <li><a href="/profile"><i class="fa-solid fa-user"></i>User Profile</a></li>
+        </ul>
+        
+        <div class="logout">
+            <a href="/">Logout</a>
+        </div>
+    </nav>
+
+    <nav class="top-nav">
+        <div class="top-nav-left">
+            <span class="logged-in-as">View and manage tickets</span>
+
+        </div>
+        
+        <div class="top-nav-right">
+            <ul>
+                <li><input type="search" placeholder="Search..."></li>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+                <li><span>Notifications</span><i class="fa-solid fa-bell"></i></li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="spacer-top">
+    <button id="createTicketBtn" onclick="openForm()">Create New Ticket</button>
+</div>
+    
+<div class="main" id="main">
+    <!-- table -->
+    <table id="ticketTable">
+        <thead>
+            <tr>
+                <th>Ticket Id</th>
+                <th>Title</th>
+                <th>Project</th>
+                <th>Assigned</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+
+
+        <tbody id="tableBody">
+            <% for(let i=0; i<items.length; i++) {%>
+                <tr>
+                    <td><%= items[i].Key %></td>
+                    <td><%= items[i].Title %></td>
+                    <td><%= items[i].Project %></td>
+                    <td><%= items[i].DevAssigned %></td>
+                    <td><%= items[i].Priority %></td>
+                    <td><%= items[i].Status %></td>
+                    <td><%= items[i].Type %></td>
+                    <td><%= items[i].Date %></td>
+                    <td class="action-btns"><button><i class="fa-solid fa-eye"></i></button><button><i class="fa-solid fa-pencil"></i></button><button><i class="fa-solid fa-trash-can"></i></button></td>
+                </tr>
+             <% } %>
+        </tbody>
+    </table>
+
+<!-- form -->
+<form method="post" id="ticketCreationForm">
+    <i class="fa-solid fa-circle-xmark" style="color: #b90e28;" onclick="closeForm()"></i>
+    <div>
+        <label for="Title">Title</label>
+        <input type="text" name="Title" id="Title" autocomplete="off">
+    </div>
+    <div>
+        <label for="Project">Project</label>
+        <input type="text" name="Project" id="Project" autocomplete="off">
+    </div>
+    <div>
+        <label for="DevAssigned">Dev Assigned</label>
+        <input type="text" name="DevAssigned" id="DevAssigned" autocomplete="off">
+    </div>
+    <div>
+        <label for="Priority">Priority</label>
+        <input type="text" name="Priority" id="Priority" autocomplete="off">
+    </div>
+    <div>
+        <label for="Type">Type</label>
+        <input type="text" name="Type" id="Type" autocomplete="off">
+    </div>
+    <div>
+        <label for="Status">Status</label>
+        <input type="text" name="Status" id="Status" autocomplete="off">
+    </div>
+    <div>
+        <label for="Desc">Description</label>
+        <textarea type="text" name="Desc" id="Desc" cols="30" rows="10" autocomplete="off"></textarea>
+    </div>
+    <div>
+        <label for="Date">Date</label>
+        <input type="text" name="Date" id="Date" autocomplete="off">
+    </div>
+    <div>
+        <label for=""></label>
+        <input type="submit" value="Submit" class="submit-btn" id="submit-btn">
+    </div>
+</form>
+
+</div>
+
+</body>
+<script>
+    function openForm() {
+        document.getElementById("ticketTable").style.display = "none";
+        document.getElementById("ticketCreationForm").style.display = "flex";
+        document.getElementById("main").style.justifyContent = "center";
+        document.getElementById("main").style.alignItems = "center";
+        document.getElementById("Desc").style.height = "80px";
+        document.getElementById("ticketCreationForm").style.height = "100%";
+        document.getElementById("submit-btn").style.marginTop = "2%";
+    }
+
+    function closeForm() {
+        document.getElementById("ticketTable").style.display = "block";
+        document.getElementById("ticketCreationForm").style.display = "none";
+        document.getElementById("main").style.justifyContent = "normal";
+        document.getElementById("main").style.alignItems = "normal";
+    }
+</script>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/detailsChange.css">
+    <script src="https://kit.fontawesome.com/79b912bdab.js" crossorigin="anonymous"></script>
+    <title>BugTracker | Change Username/Password</title>
+</head>
+<body>
+
+    <nav class="side-nav">
+        <div class="logo">
+            <img class="home-logo" src="images/scarab-removebg-preview.png" alt="scarab">
+        </div>
+        <ul>
+            <li><a href="/home"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+            <li><a href="/viewUsers"><i class="fa-solid fa-users problem-i"></i>View Users</a></li>
+            <li><a href="/projectsPage"><i class="fa-solid fa-table-list"></i>Projects</a></li>
+            <li><a href="/tickets"><i class="fa-solid fa-receipt"></i>Tickets</a></li>
+            <li><a href="/profile"><i class="fa-solid fa-user"></i>User Profile</a></li>
+        </ul>
+        
+        <div class="logout">
+            <a href="/">Logout</a>
+        </div>
+    </nav>
+
+    <nav class="top-nav">
+        <div class="top-nav-left">
+            <span class="logged-in-as">Change username/password here!</span>
+
+        </div>
+        
+        <div class="top-nav-right">
+            <ul>
+                <li><input type="search" placeholder="Search..."></li>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+                <li><span>Notifications</span><i class="fa-solid fa-bell"></i></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- main stuff here -->
+
+    <div class="spacer-top">
+        
+    </div>
+
+    <div class="main">
+
+        <div class="welcome-message" id="welcome-message">
+            <h1 id="loggedUserUsername">Hello User,</h1>
+            <h4>select an option below to change profile details.</h4>
+        </div>
+
+        <div class="change-btns" id="change-btns">
+            <button class="usernameChangeBtn" onclick="showUsernameChange()">Change Username</button>
+            <button class="passwordChangeBtn" onclick="showPasswordChange()">Change Password</button>
+        </div>
+
+        <form method="post" id="usernameChange" class="usernameChange">
+            <i class="fa-solid fa-circle-xmark" id="closeForm" onclick="closeUsernameForm()"></i>
+            <div class="form-group" id="form-group">
+                <label for="newUsername">New Username</label>
+                <input type="text" name="newUsername" id="newUsername" autocomplete="off">
+            </div>
+            <div class="form-group" id="form-group">
+                <label for=""></label>
+                <input type="submit" value="Submit" class="submit-btn" id="submit-btn">
+            </div>
+        </form>
+
+        <form method="post" id="passwordChange" class="passwordChange">
+            <i class="fa-solid fa-circle-xmark" id="closeForm" onclick="closePasswordForm()"></i>
+            <div class="form-group" id="form-group">
+                <label for="newPassword">New Password</label>
+                <input type="text" name="newPassword" id="newPassword" autocomplete="off">
+            </div>
+            <div class="form-group" id="form-group">
+                <label for=""></label>
+                <input type="submit" value="Submit" class="submit-btn" id="submit-btn" onclick="changeUsername()">
+            </div>
+        </form>
+
+    </div>
+    
+
+    <!-- main stuff here -->
+
+</body>
+<script>
+
+        function showUsernameChange() {
+            document.getElementById('welcome-message').style.display = 'none'
+            document.getElementById('change-btns').style.display = 'none'
+            document.getElementById('usernameChange').style.display = 'flex'
+            document.getElementById('usernameChange').style.flexDirection = 'column'
+            document.getElementById('usernameChange').style.justifyContent = 'space-evenly'
+            document.getElementById('usernameChange').style.alignItems = 'center'
+            document.getElementById('usernameChange').style.height = '80%'
+            document.getElementById('usernameChange').style.width = '80%'
+        }
+
+        function showPasswordChange() {
+            document.getElementById('welcome-message').style.display = 'none'
+            document.getElementById('change-btns').style.display = 'none'
+            document.getElementById('passwordChange').style.display = 'flex'
+            document.getElementById('passwordChange').style.flexDirection = 'column'
+            document.getElementById('passwordChange').style.justifyContent = 'space-evenly'
+            document.getElementById('passwordChange').style.alignItems = 'center'
+            document.getElementById('passwordChange').style.height = '80%'
+            document.getElementById('passwordChange').style.width = '80%'
+        }
+
+        function closeUsernameForm() {
+            document.getElementById('usernameChange').style.display = 'none'
+            document.getElementById('welcome-message').style.display = 'flex'
+            document.getElementById('change-btns').style.display = 'flex'
+        }
+
+        function closePasswordForm() {
+            document.getElementById('passwordChange').style.display = 'none'
+            document.getElementById('welcome-message').style.display = 'flex'
+            document.getElementById('change-btns').style.display = 'flex'
+        }
+
+</script>
+</html>
